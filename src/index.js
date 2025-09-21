@@ -1,5 +1,5 @@
 "use strict";
-const server = "wss://web-app-1-j6pr.onrender.com/socket";
+const server = "wss://web-app-1-dx4o.onrender.com/socket";
 let job = null; // remember last job we got from the server
 let workers = []; // keep track of our workers
 let ws; // the websocket we use
