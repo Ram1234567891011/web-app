@@ -24,13 +24,14 @@
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
     "ts-node": "^10.9.2",
-    "ws": "^8.18.3"
+    "ws": "^8.18.3",
+    "vite": "^7.1.6"
   },
   "engines": {
     "node": "20.x"
   },
   "devDependencies": {
-    "typescript": "^5.9.2",
-    "vite": "^7.1.6"
+    "serve": "^14.2.5",
+    "typescript": "^5.9.2"
   }
 }
