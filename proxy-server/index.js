@@ -20,7 +20,7 @@ const socketProxy = createProxyMiddleware("/socket", {
 app.use(socketProxy);
 app.use(express_1.default.static(path.join(__dirname, "../dist")));
 // Catch-all route → para gumana ang index.html sa /
-app.get("/*", (req, res) => {
+app.get("/:path(*)", (req, res) => {
   res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 new socket_io_1.Server(http);
