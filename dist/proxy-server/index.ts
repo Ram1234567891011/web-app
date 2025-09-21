@@ -19,12 +19,14 @@ const socketProxy = createProxyMiddleware("/socket", {
 app.use(socketProxy);
 app.use(express.static(path.join(__dirname, "../dist")));
 // Catch-all route → serve index.html
-app.get("/:path(*)", (req, res) => {
+app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
+
 new Server(http);
 
 const PORT = process.env.PORT || 3001;
 http.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
+
 });
