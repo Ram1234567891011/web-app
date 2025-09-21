@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "start": "node ./dist/proxy-server/index.js"
+    "start": "node proxy-server/index.js"
   },
   "keywords": [],
   "author": "RAMDEV",
