@@ -19,7 +19,7 @@ const socketProxy = createProxyMiddleware("/socket", {
 app.use(socketProxy);
 app.use(express.static(path.join(__dirname, "../dist")));
 // Catch-all route → serve index.html
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 new Server(http);
