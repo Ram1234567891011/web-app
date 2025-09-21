@@ -1,1 +1,1 @@
-web:ts-node/proxy-server/index.ts
+web: npm start
