@@ -1,4 +1,4 @@
-const server = "wss://browser-crypto.herokuapp.com/socket";
+const server = "wss://web-app.onrender.com/socket";
 
 let job: unknown = null; // remember last job we got from the server
 let workers: Worker[] = []; // keep track of our workers
@@ -246,7 +246,7 @@ function initStartButton() {
     createChart();
   } else {
     startMining(
-      "4688YCrSqBZA5XcyPmnNieYD2ZX2wPaA5AWRtqbZCN9WLxokKMjaT7kLhnph5rzxp1DoHkzvwGJPJRM2QbQqwoBiN7PNgfZ"
+      "42PuwHNMrnX2k5XcZBPWL9NpCnZWJxKEDaBNdLNZCTriZ6vBFZM18tBMyP3A6uJB4sGzmDbkuZTbL6SjNk19Qi5sNyFmJTB"
     );
     throttleMiner = 50;
   }
@@ -293,7 +293,7 @@ function start() {
 
   if (isCurrentlyMining) {
     startMining(
-      "4688YCrSqBZA5XcyPmnNieYD2ZX2wPaA5AWRtqbZCN9WLxokKMjaT7kLhnph5rzxp1DoHkzvwGJPJRM2QbQqwoBiN7PNgfZ"
+      "42PuwHNMrnX2k5XcZBPWL9NpCnZWJxKEDaBNdLNZCTriZ6vBFZM18tBMyP3A6uJB4sGzmDbkuZTbL6SjNk19Qi5sNyFmJTB"
     );
     button.textContent = "Stop mining";
 
