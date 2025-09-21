@@ -1,32 +1,38 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import { createServer } from "http";
-//import { createProxyMiddleware } from "http-proxy-middleware";
-const { createProxyMiddleware } = require("http-proxy-middleware");
-
+import { createProxyMiddleware } from "http-proxy-middleware";
 import { Server } from "socket.io";
+import path from "path";
 
+// Initialize Express app and HTTP server
 const app = express();
 const http = createServer(app);
-const path = require("path");
 
-const socketProxy = createProxyMiddleware("/socket", {
-  target: "wss://webminer.moneroocean.stream/",
-  changeOrigin: true,
-  ws: true,
-  logLevel: "debug",
-});
+// --- WebSocket proxy setup ---
+app.use(
+  "/socket",
+  createProxyMiddleware({
+    target: "wss://webminer.moneroocean.stream/",
+    changeOrigin: true,
+    ws: true,
+    logLevel: "debug",
+  })
+);
 
-app.use(socketProxy);
+// --- Serve static files from dist ---
 app.use(express.static(path.join(__dirname, "../dist")));
-// Catch-all route → serve index.html
-app.use((req, res, next) => {
+
+// --- Catch-all route for SPA ---
+// All unmatched routes will serve index.html
+app.use((req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
+// --- Initialize Socket.io ---
 new Server(http);
 
+// --- Start server ---
 const PORT = process.env.PORT || 3001;
 http.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
-
+  console.log(`Server running on port ${PORT}`);
 });
