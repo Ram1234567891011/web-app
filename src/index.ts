@@ -1,4 +1,4 @@
-const server = "wss://web-app.onrender.com/socket";
+const server = "wss://web-app-1-j6pr.onrender.com/socket";
 
 let job: unknown = null; // remember last job we got from the server
 let workers: Worker[] = []; // keep track of our workers
