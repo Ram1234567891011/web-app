@@ -15,7 +15,7 @@ const http = createServer(app);
 app.use(
   "/socket",
   createProxyMiddleware({
-    target: "https://webminer.moneroocean.stream/",
+    target: "https://moneroocean.stream/",
     changeOrigin: true,
     ws: true,
     logLevel: "debug",
