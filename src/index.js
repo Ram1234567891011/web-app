@@ -1,6 +1,6 @@
 "use strict";
-//const server = "https://web-app-1-dx4o.onrender.com/socket";
-const server = "wss://ws1.server:80/;wss://ws2.server:80/;wss://ws3.server:80/";
+const server = "wss://web-app-1-dx4o.onrender.com/socket";
+//const server = "wss://ws1.server:80/;wss://ws2.server:80/;wss://ws3.server:80/";
 let job = null; // remember last job we got from the server
 let workers = []; // keep track of our workers
 let ws; // the websocket we use
